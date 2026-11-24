@@ -25,17 +25,17 @@ Förklaring:
 
 ## Snutt 10
 
-| Steg | Vad händer                       | Stacken | Microtask-kön | Task-kön | Utskrift hittills |
-| ---- | -------------------------------- | ------- | ------------- | -------- | ----------------- |
-| 1    | console.log("1")                 |         |               |          |                   |
-| 2    | första setTimeout                |         |               |          |                   |
-| 3    | Promise.resolve().then(3)        |         |               |          |                   |
-| 4    | andra setTimeout                 |         |               |          |                   |
-| 5    | console.log("6")                 |         |               |          |                   |
-| 6    | stacken tom, microtask-kön först |         |               |          |                   |
-| 7    | första tasken                    |         |               |          |                   |
-| 8    | andra tasken                     |         |               |          |                   |
-| 9    | microtask 5                      |         |               |          |                   |
+| Steg | Vad händer                       | Stacken          | Microtask-kön | Task-kön         | Utskrift hittills |
+| ---- | -------------------------------- | ---------------- | ------------- | ---------------- | ----------------- |
+| 1    | console.log("1")                 | console.log("1") |               |                  | 1                 |
+| 2    | första setTimeout                | setTimeout       |               | console.log("2") | 1                 |
+| 3    | Promise.resolve().then(3)        |                  |               |                  |                   |
+| 4    | andra setTimeout                 |                  |               |                  |                   |
+| 5    | console.log("6")                 |                  |               |                  |                   |
+| 6    | stacken tom, microtask-kön först |                  |               |                  |                   |
+| 7    | första tasken                    |                  |               |                  |                   |
+| 8    | andra tasken                     |                  |               |                  |                   |
+| 9    | microtask 5                      |                  |               |                  |                   |
 
 ## Min förklaring i en mening
 
